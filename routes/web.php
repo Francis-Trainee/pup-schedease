@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
+use App\Http\Controllers\Student\DashboardController as StudentDashboardController; 
 
 Route::get('/', function () {
     return view('landingpage');
@@ -31,6 +32,16 @@ Route::middleware(['auth', 'role:admin'])
         Route::get('/sectionmanagement', [AdminDashboardController::class, 'section_management'])->name('section_management');
         Route::get('/schedulemanagement', [AdminDashboardController::class, 'schedule_management'])->name('schedule_management');
         Route::get('/reports', [AdminDashboardController::class, 'reports'])->name('reports');
+    });
+
+// ================= STUDENT ROUTES =================
+Route::middleware(['auth', 'role:student'])
+    ->prefix('student')
+    ->name('student.')
+    ->group(function () {
+        Route::get('/dashboard', [StudentDashboardController::class, 'dashboard'])->name('dashboard');
+        Route::get('/class_schedule', [StudentDashboardController::class, 'class_schedule'])->name('class_schedule');
+        Route::get('/laboratory', [StudentDashboardController::class, 'laboratory'])->name('laboratory');
     });
 
 require __DIR__ . '/auth.php';

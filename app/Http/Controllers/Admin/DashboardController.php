@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Models\Faculty;
 use App\Http\Controllers\Controller;
 
 
