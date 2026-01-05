@@ -55,6 +55,7 @@ class RoomManagement extends Component
         ]);
 
         $this->closeModal();
+        session()->flash('message', 'Room created successfully!');
     }
 
     public function edit($id)
@@ -81,6 +82,7 @@ class RoomManagement extends Component
         ]);
 
         $this->closeModal();
+        session()->flash('message', 'Room updated successfully!');
     }
 
     /* ---------- DEACTIVATE WITH WARNING ---------- */

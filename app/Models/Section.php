@@ -14,4 +14,9 @@ class Section extends Model
         'year_level',
         'section_name',
     ];
+
+    public function schedules()
+    {
+        return $this->hasMany(Schedule::class);
+    }
 }

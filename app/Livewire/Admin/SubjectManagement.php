@@ -73,6 +73,7 @@ class SubjectManagement extends Component
         ]);
 
         $this->closeModal();
+        session()->flash('message', 'Subject created successfully!');
     }
 
     public function edit($id)
@@ -103,6 +104,7 @@ class SubjectManagement extends Component
         ]);
 
         $this->closeModal();
+        session()->flash('message', 'Subject updated successfully!');
     }
 
     public function deactivateSubject()

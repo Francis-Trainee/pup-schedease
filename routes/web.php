@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProfileController;
 
+use App\Http\Controllers\Admin\ScheduleController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
-use App\Http\Controllers\Student\DashboardController as StudentDashboardController; 
+use App\Http\Controllers\Student\DashboardController as StudentDashboardController;
 
 Route::get('/', function () {
     return view('landingpage');
@@ -30,7 +31,13 @@ Route::middleware(['auth', 'role:admin'])
         Route::get('/subjectmanagement', [AdminDashboardController::class, 'subject_management'])->name('subject_management');
         Route::get('/roommanagement', [AdminDashboardController::class, 'room_management'])->name('room_management');
         Route::get('/sectionmanagement', [AdminDashboardController::class, 'section_management'])->name('section_management');
+
+        // Creating Schedule Management Route
         Route::get('/schedulemanagement', [AdminDashboardController::class, 'schedule_management'])->name('schedule_management');
+        
+        Route::get('/schedules/create', [ScheduleController::class, 'create'])->name('schedules.create');
+        Route::post('/schedules', [ScheduleController::class, 'store'])->name('schedules.store');
+
         Route::get('/reports', [AdminDashboardController::class, 'reports'])->name('reports');
     });
 

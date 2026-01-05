@@ -57,7 +57,7 @@ class FacultyManagement extends Component
         ]);
 
         $this->closeModal();
-        session()->flash('success', 'Faculty added successfully!');
+        session()->flash('message', 'Faculty added successfully!');
     }
 
 
@@ -89,8 +89,9 @@ class FacultyManagement extends Component
         ]);
 
         $this->closeModal();
-        session()->flash('success', 'Faculty updated successfully!');
+        session()->flash('message', 'Faculty updated successfully!');
     }
+
     public function confirmDeactivate($id)
     {
         $faculty = Faculty::findOrFail($id);

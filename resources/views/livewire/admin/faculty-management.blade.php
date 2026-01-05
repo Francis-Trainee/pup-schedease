@@ -1,5 +1,12 @@
 <div class="space-y-6">
 
+    {{-- Success Message --}}
+    @if (session()->has('message'))
+        <div class="bg-green-100 text-green-700 px-4 py-2 rounded mb-4">
+            {{ session('message') }}
+        </div>
+    @endif
+
     <!-- HEADER + ADD FACULTY BUTTON -->
     <div class="flex justify-between items-center mb-4">
         <h2 class="text-lg font-semibold">Faculty List</h2>

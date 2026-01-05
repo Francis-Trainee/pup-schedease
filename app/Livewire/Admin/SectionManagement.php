@@ -48,6 +48,7 @@ class SectionManagement extends Component
         ]);
 
         $this->closeModal();
+        session()->flash('message', 'Section created successfully!');
     }
 
     public function edit($id)
@@ -74,6 +75,7 @@ class SectionManagement extends Component
         ]);
 
         $this->closeModal();
+        session()->flash('message', 'Section updated successfully!');
     }
 
     public function render()

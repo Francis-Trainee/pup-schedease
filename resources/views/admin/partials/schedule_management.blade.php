@@ -9,6 +9,6 @@
     </x-slot>
 
     <div class="p-6 max-w-7xl mx-auto">
-        {{-- <livewire:admin.schedule-management /> --}}
+        <livewire:admin.schedule-management />
     </div>
 </x-app-layout>
